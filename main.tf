@@ -103,13 +103,6 @@ resource "aws_instance" "web" {
   key_name               = var.key_name
   associate_public_ip_address = true
 
-  user_data = <<-EOF
-              #!/bin/bash
-              sudo yum update -y
-              sudo amazon-linux-extras install epel -y
-              sudo yum install ansible -y
-              EOF
-
   tags = {
     Name = "AnsibleManagedEC2"
   }

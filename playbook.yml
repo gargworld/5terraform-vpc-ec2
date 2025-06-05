@@ -1,7 +1,25 @@
 ---
-- name: Configure web server
+
+- name: Update all packages and install Ansible
   hosts: all
   become: yes
+  tasks:
+    - name: Run yum update
+      yum:
+        name: "*"
+        state: latest
+        update_cache: yes
+
+    - name: Enable EPEL repository (required for Ansible on Amazon Linux 2)
+      amazon.aws.amazon_linux_extras:
+        name: epel
+        state: enabled
+      when: ansible_distribution == "Amazon"
+
+    - name: Install Ansible
+      yum:
+        name: ansible
+        state: present
   tasks:
     - name: Install NGINX
       yum:
@@ -18,5 +36,5 @@
     - name: Add Hello World HTML page
       copy:
         content: "<html><body><h1>Hello, World!</h1></body></html>"
-        dest: /usr/share/nginx/html/indel.html
+        dest: /usr/share/nginx/html/index.html
         mode: '0644'
