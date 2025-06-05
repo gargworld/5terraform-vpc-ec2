@@ -1,0 +1,62 @@
+# Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Crash log files
+crash.log
+
+# Terraform sensitive files
+*.tfvars
+*.tfvars.json
+
+# Ignore override and CLI config files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Ignore Terraform provider downloads
+.terraform/
+
+# Terraform plan output
+*.tfplan
+
+# Ignore Ansible log and retry files
+*.retry
+*.log
+
+# SSH keys and secrets (be careful!)
+*.pem
+*.key
+*.crt
+*.jks
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS system files
+.DS_Store
+
+# Python virtual environments (if Ansible is in venv)
+venv/
+.env/
+__pycache__/
+*.pyc
+
+# General archives
+*.zip
+*.tar.gz
+*.tar
+*.tgz
+
+# Node/npm if any UI tools
+node_modules/
+
+# Ignore inventory cache (optional)
+.inventory/
+
